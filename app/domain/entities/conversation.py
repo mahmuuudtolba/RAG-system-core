@@ -2,7 +2,7 @@ from dataclasses import dataclass , field
 from datetime import datetime
 from typing import List ,Optional
 from uuid import uuid4
-
+from app.infrastructure.llm.openai_adapter import OpenAIAdapter  
 from app.domain.entities.chat_message import ChatMessage, MessageRole
 
 
@@ -42,6 +42,10 @@ class Conversation:
     def get_message_count(self) -> int:
         """Get total message count"""
         return len(self.messages)
+    
+    def _generate_title(self , content:str) -> str:
+        return content[:20]
+
     
 
     def get_last_user_message(self) -> Optional[ChatMessage]:
