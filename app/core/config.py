@@ -30,9 +30,6 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql+asyncpg://user:password@localhost:5432/rag_db"
     DB_ECHO: bool = False  # Set to True to see SQL queries in logs
     
-    # ==================== Redis Settings ====================
-    REDIS_URL: str = "redis://localhost:6379"
-    REDIS_PASSWORD: Optional[str] = None
     
     # ==================== LLM Provider Settings ====================
     LLM_PROVIDER: str = "openai"  # openai, anthropic, local
@@ -63,21 +60,7 @@ class Settings(BaseSettings):
     
     # ==================== Vector Store Settings ====================
     VECTOR_STORE_PROVIDER: str = "pinecone"  # pinecone, weaviate, qdrant
-    
-    # Pinecone Settings
-    PINECONE_API_KEY: str = ""
-    PINECONE_ENVIRONMENT: str = "us-east-1"
-    PINECONE_INDEX_NAME: str = "documents"
-    
-    # Weaviate Settings
-    WEAVIATE_URL: str = "http://localhost:8080"
-    WEAVIATE_API_KEY: Optional[str] = None
-    
-    # Qdrant Settings
-    QDRANT_URL: str = "http://localhost:6333"
-    QDRANT_API_KEY: Optional[str] = None
-    QDRANT_COLLECTION_NAME: str = "documents"
-    
+
     # ==================== Storage Settings ====================
     STORAGE_PROVIDER: str = "local"  # s3, gcs, azure, local
     
