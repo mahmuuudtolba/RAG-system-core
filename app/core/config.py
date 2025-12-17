@@ -27,8 +27,13 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
     # ==================== Database Settings ====================
-    DATABASE_URL: str = "postgresql+asyncpg://user:password@localhost:5432/rag_db"
+    DATABASE_URL: str = "postgresql+asyncpg://root:password@localhost:5432/rag"
     DB_ECHO: bool = False  # Set to True to see SQL queries in logs
+    POOL_SIZE : int = 5
+    POOL_TIMEOUT :int = 30
+    POOL_RECYCLE :int = 3600
+    POOL_PRE_PING :bool = True
+    MAX_OVERFLOW: int = 20 # up to 10 more temporary connections
     
     
     # ==================== LLM Provider Settings ====================

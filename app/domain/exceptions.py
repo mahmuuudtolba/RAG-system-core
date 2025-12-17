@@ -10,3 +10,6 @@ class InvalidDocumentFormatError(DomainException):
 
 class EmbeddingError(DomainException):
     pass
+
+class ConversationNotFoundError(DomainException):
+    pass

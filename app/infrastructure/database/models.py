@@ -33,21 +33,6 @@ class Document(Base):
     user:Mapped[User] = relationship(back_populates= "documents")
 
 
-class Conversation(Base):
-    __tablename__ = "conversations"
-    id:Mapped[int] = mapped_column(primary_key = True)
-    user_id :Mapped[int] = mapped_column(ForeignKey("user.id"))
-    title : Mapped[str]= mapped_column(default="New conversation")
-    created_at: Mapped[datetime] = mapped_column(server_default=func.now())
-    updated_at: Mapped[datetime] = mapped_column(server_default=func.now() , onupdate= func.now())
-
-    # Relation
-    user:Mapped[User] = relationship(back_populates = "conversations")
-    messages:Mapped[List[ChatMessage]] = relationship(
-        back_populates = "conversation" ,
-        cascade = "all, delete-orphan"
-    )
-
 class ChatMessage(Base):
     __tablename__ = "chat_messages"
     id:Mapped[int] = mapped_column(primary_key = True)
@@ -64,6 +49,23 @@ class ChatMessage(Base):
         back_populates="messages"
 
     )
+
+
+class Conversation(Base):
+    __tablename__ = "conversations"
+    id:Mapped[int] = mapped_column(primary_key = True)
+    user_id :Mapped[int] = mapped_column(ForeignKey("user.id"))
+    title : Mapped[str]= mapped_column(default="New conversation")
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(server_default=func.now() , onupdate= func.now())
+
+    # Relation
+    user:Mapped[User] = relationship(back_populates = "conversations")
+    messages:Mapped[List[ChatMessage]] = relationship(
+        back_populates = "conversation" ,
+        cascade = "all, delete-orphan"
+    )
+
 
 
 
