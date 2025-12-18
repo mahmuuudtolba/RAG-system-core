@@ -5,7 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "alembic>=1.17.2",
+    "asyncpg>=0.31.0",
     "docx>=0.2.4",
+    "greenlet>=3.3.0",
     "numpy>=2.2.6",
     "openai>=2.8.0",
     "pydantic-settings>=2.12.0",

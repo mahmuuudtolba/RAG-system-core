@@ -1,3 +1,4 @@
+from __future__ import annotations
 from sqlalchemy.sql.functions import func
 from datetime import datetime
 from sqlalchemy import ForeignKey , Text
