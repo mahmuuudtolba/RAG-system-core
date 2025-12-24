@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass , field
 from datetime import datetime
 from typing import List
 
@@ -14,7 +14,7 @@ class Document:
     content:str
     created_at:datetime
     user_id:str
-    chunks: List[str]= []
+    chunks: List[str]= field(default_factory=list)
     
     def split_into_chunks(self, chunk_size : int = 1000) -> list[str]:
         words = self.content.split()

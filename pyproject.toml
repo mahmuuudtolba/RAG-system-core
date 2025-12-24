@@ -8,10 +8,13 @@ dependencies = [
     "alembic>=1.17.2",
     "asyncpg>=0.31.0",
     "docx>=0.2.4",
+    "fastapi>=0.127.0",
     "greenlet>=3.3.0",
     "numpy>=2.2.6",
     "openai>=2.8.0",
     "pydantic-settings>=2.12.0",
     "pypdf2>=3.0.1",
+    "python-multipart>=0.0.21",
     "sqlalchemy>=2.0.44",
+    "uvicorn>=0.40.0",
 ]
